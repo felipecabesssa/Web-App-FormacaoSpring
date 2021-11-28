@@ -10,9 +10,9 @@
 		<nav class="container mb-3 navbar navbar-expand navbar-light bg-light d-flex justify-content-between">
 			<div class="navbar-nav">
 				<a class="nav-link active" href="">Todos</a>
-				<a class="nav-link" href="">Aguardando</a>
-				<a class="nav-link" href="">Aprovado</a>
-				<a class="nav-link" href="">Entregue</a>
+				<a class="nav-link" href="/home/aguardando">Aguardando</a>
+				<a class="nav-link" href="/home/aprovado">Aprovado</a>
+				<a class="nav-link" href="/home/entregue">Entregue</a>
 			</div>
 			<a href="/pedido/formulario"><button class="btn btn-outline-secondary">Novo</button></a>
 			
@@ -31,7 +31,7 @@
 					<div class="col-12 col-md-8 mb-3">
 						 <div class="row">
 							 <div class="col-md-4">Valor: <span th:text="${pedido.valorNegociado}"></span></div>
-							 <div class="col-md-8">Data da entrega: <span th;text="${pedido.dataDaEntrega}"></span></div>
+							 <div class="col-md-8">Data da entrega: <span th:text="${pedido.dataDaEntrega}"></span></div>
 						 </div>
 						 
 						 <div>Produto</div>
@@ -43,7 +43,7 @@
 						 <div>Descricao</div>
 						 <div>
 						 	<textarea class="form-control" rows="11" cols="25"
-						 		th:text="${pedido.descricao}">descrição do pedido</textarea>
+						 		th:text="${pedido.descricao}">descriï¿½ï¿½o do pedido</textarea>
 						 </div>
 					</div>
 					

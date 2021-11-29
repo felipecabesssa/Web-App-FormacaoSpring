@@ -35,6 +35,7 @@ public class HomeController {
 		
 		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.valueOf(status.toUpperCase()));
 		model.addAttribute("pedidos", pedidos);
+		model.addAttribute("status", status);
 		
 		return "home";
 	}

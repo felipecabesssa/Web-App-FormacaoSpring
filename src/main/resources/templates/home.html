@@ -6,26 +6,10 @@
 	<div th:replace="~{base :: logo}"></div>
 	
 	<div class="container">
-		<div th:replace="~{base :: titulo('Tatenu da semana')}"></div>
-	
-		<nav class="container mb-3 navbar navbar-expand navbar-light bg-light d-flex justify-content-between">
-			<div class="navbar-nav">
-				<a th:classappend="${status} == null ? active" class="nav-link" href="/home">Todos</a>
-				<a th:classappend="${status} == 'aguardando' ? active" class="nav-link" href="/home/aguardando">Aguardando</a>
-				<a th:classappend="${status} == 'aprovado' ? active" class="nav-link" href="/home/aprovado">Aprovado</a>
-				<a th:classappend="${status} == 'entregue' ? active" class="nav-link" href="/home/entregue">Entregue</a>
-			</div>
-			<a href="/pedido/formulario"><button class="btn btn-outline-secondary">Novo</button></a>
-			
-		</nav>
+		<div th:replace="~{base :: titulo('Últimas Entregas')}"></div>
 		
-		<div class="card mb-3" th:each="pedido : ${pedidos}">
-		
-			<th:block th:switch = "${#strings.toString(pedido.status)}">
-                <div th:case= "'AGUARDANDO'" th:text="${pedido.nomeProduto}" class="card-header alert-warning">Nome do Produto</div>
-                <div th:case= "'APROVADO'" th:text="${pedido.nomeProduto}" class="card-header alert-success">Nome do Produto</div>
-                <div th:case= "'ENTREGUE'" th:text="${pedido.nomeProduto}" class="card-header alert-dark">Nome do Produto</div>
-            <th:block>
+		<div class="card mb-3 mt-2" th:each="pedido : ${pedidos}">
+	        <div th:text="${pedido.nomeProduto}" class="card-header alert-dark">Nome do Produto</div>
 
 			<div class="card-body">
 				<div class="row">

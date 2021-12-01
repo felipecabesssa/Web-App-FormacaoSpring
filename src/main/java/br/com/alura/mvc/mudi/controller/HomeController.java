@@ -4,6 +4,7 @@ import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,8 +26,9 @@ public class HomeController {
 	public String home(Model model, Principal principal) {
 		
 		Sort sort = Sort.by("id").descending();
+		PageRequest paginacao = PageRequest.of(0, 10, sort);
 		
-		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.AGUARDANDO, sort);
+		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.AGUARDANDO, paginacao);
 		model.addAttribute("pedidos", pedidos);
 		
 		return "home";

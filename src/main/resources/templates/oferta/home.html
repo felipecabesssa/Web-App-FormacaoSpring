@@ -1,0 +1,45 @@
+<html lang="pt-BR">
+<meta charset="UTF-8" />
+<head th:replace="~{base :: head}"></head>
+
+<body>
+	<div th:replace="~{base :: logo}"></div>
+	
+	<div class="container">
+		<div th:replace="~{base :: titulo('Últimas Entregas')}"></div>
+		
+		<div class="card mb-3 mt-2" th:each="pedido : ${pedidos}">
+	        <div th:text="${pedido.nomeProduto}" class="card-header alert-dark">Nome do Produto</div>
+
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 col-md-8 mb-3">
+						 <div class="row">
+							 <div class="col-md-4">Valor: <span th:if="${pedido.valorNegociado} != null" th:text="${'R$ ' + #numbers.formatDecimal(pedido.valorNegociado,2,'POINT',2,'COMMA')}"></span></div>
+							 <div class="col-md-8">Data da entrega: <span th:text="${#temporals.format(pedido.dataDaEntrega, 'dd/MM/yyyy')}"></span></div>
+						 </div>
+						 
+						 <div>Produto</div>
+						 <div>
+						 	<input class="form-control" th:value="${pedido.urlProduto}"
+						 		value="url do produto" />
+						 </div>
+						 
+						 <div>Descrição</div>
+						 <div>
+						 	<textarea class="form-control" rows="11" cols="25"
+						 		th:text="${pedido.descricao}">descrição do pedido</textarea>
+						 </div>
+					</div>
+					
+					<div class="col-12 col-md-4">
+						<div>
+							<img class="img-thumbnail" th:src="${pedido.urlImagem}" alt="" src="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

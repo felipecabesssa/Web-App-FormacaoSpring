@@ -7,14 +7,14 @@ import java.time.format.DateTimeFormatter;
 import br.com.alura.mvc.mudi.model.Oferta;
 
 public class RequisicaoNovaOferta {
-	
+
 	private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
-	
+
 	private Long pedidoId;
 	private String valor;
 	private String dataDaEntrega;
 	private String comentario;
-	
+
 	public Long getPedidoId() {
 		return pedidoId;
 	}
@@ -39,7 +39,7 @@ public class RequisicaoNovaOferta {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	
+
 	public Oferta toOferta() {
 		Oferta oferta = new Oferta();
 		oferta.setComentario(this.comentario);

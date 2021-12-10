@@ -24,14 +24,12 @@ public class HomeController {
 	
 	@GetMapping
 	public String home(Model model, Principal principal) {
-		
-		Sort sort = Sort.by("id").descending();
+		Sort sort = Sort.by("dataDaEntrega").descending();
 		PageRequest paginacao = PageRequest.of(0, 10, sort);
 		
-		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.AGUARDANDO, paginacao);
+		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.ENTREGUE, paginacao);
 		model.addAttribute("pedidos", pedidos);
-		
 		return "home";
 	}
-
+	
 }

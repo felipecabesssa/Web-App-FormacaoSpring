@@ -9,8 +9,10 @@ public class RequisicaoNovoPedido {
 	
 	@NotBlank
 	private String nomeProduto;
+	
 	@NotBlank
 	private String urlProduto;
+	
 	@NotBlank
 	private String urlImagem;
 	private String descricao;
@@ -39,6 +41,7 @@ public class RequisicaoNovoPedido {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
 	public Pedido toPedido() {
 		Pedido pedido = new Pedido();
 		pedido.setDescricao(descricao);
@@ -50,5 +53,4 @@ public class RequisicaoNovoPedido {
 	}
 	
 	
-
 }
